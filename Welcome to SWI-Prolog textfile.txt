@@ -1,0 +1,83 @@
+Welcome to SWI-Prolog (threaded, 64 bits, version 10.0.2)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+12 ?- house = house.
+true.
+
+13 ?- house = abc.
+false.
+
+14 ?- edge(a,b) = edge(C,b).
+C = a.
+
+15 ?- edge(a,d) = edge(C,B).
+C = a,
+B = d.
+
+16 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+
+17 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+
+18 ?- edge(A,A) = edge(b,c).
+false.
+
+19 ?- edge(A,A) = edge(b,b).
+A = b.
+
+20 ?- A = B, B = f.
+A = B, B = f.
+
+21 ?- A = B, B = f, A = e.
+false.
+
+  
+
+1- house = house.
+Result: true.
+Explanation: The terms can be unified because both are exactly the same atom, house.
+
+2- house = abc.
+Result: false.
+Explanation: The terms cannot be unified because house and abc are different atoms.
+
+3- edge(a,b) = edge(C,b).
+Result: C = a.
+Explanation: The terms can be unified because they have the same functor edge and the same number of arguments. C can be unified with a.
+
+4- edge(a,d) = edge(C,B).
+Result: C = a, B = d.
+Explanation: The terms can be unified because C can become a and B can become d, making both terms identical.
+
+5- edge(C,B) = edge(a,d).
+Result: C = a, B = d.
+Explanation: The terms can be unified because the variables C and B can take the values a and d.
+
+
+6- edge(A,f(g,h)) = edge(a,B).
+Result: A = a, B = f(g, h).
+Explanation: The terms can be unified because A can become a and B can become f(g,h), making the two structures identical.
+
+7- edge(A,A) = edge(b,c).
+Result: false.
+Explanation: The terms cannot be unified because the same variable A appears twice, so it must have the same value in both positions. It cannot be both b and c.
+
+8- edge(A,A) = edge(b,b).
+Result: A = b.
+Explanation: The terms can be unified because both occurrences of A can have the same value, b.
+
+9- A = B, B = f.
+Result: A = B, B = f.
+Explanation: The terms can be unified because A and B become linked, and B is unified with f. Therefore, both represent f.
+
+10- A = B, B = f, A = e.
+Result: false.
+Explanation: The terms cannot be unified because A and B are linked. B = f makes A = f, but the last condition requires A = e. f and e are different atoms.
+
