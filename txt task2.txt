@@ -1,0 +1,46 @@
+
+31 ?- female(X).
+X = sara ;
+X = nora.
+
+32 ?- male(_).
+true .
+
+33 ?- male(X).
+X = ali ;
+X = ahmad ;
+X = muhammad ;
+X = faisal ;
+X = hassan ;
+X = khan.
+
+34 ?- parent(X, Y), parent(Y, faisal).
+X = ali,
+Y = muhammad ;
+false.
+
+35 ?- parent(ahmad, X), female(X).
+X = sara ;
+X = nora ;
+false.
+
+36 ?- parent(ahmad, X), male(X).
+X = khan.
+
+37 ?- parent(X, ahmad), parent(X, muhammad).
+X = ali.
+
+38 ?- parent(X, khan), parent(X, nora), male(khan).
+X = ahmad.
+
+Female members: The query female(X) displays all females, which are Sara and Nora.
+
+Male existence: The query male(_) checks whether there is at least one male. Prolog returns true.
+
+Grandparent of Faisal: The query checks two parent relationships and finds that Ali is the grandparent of Faisal.
+
+Daughters of Ahmad: The query checks Ahmad's children and finds that Sara and Nora are his daughters.
+
+Common parent: The query shows that Ahmad and Muhammad have the same parent, Ali.
+
+Brother relationship: The query shows that Khan and Nora have the same parent, Ahmad, and Khan is male, so Khan is Nora's brother.
